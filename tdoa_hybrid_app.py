@@ -32,7 +32,7 @@ def jacobian_tdoa(x, sensors, ref_idx=0):
     Returns matrix shape ((N-1), 2)
     """
     x = np.asarray(x)
-    s = np.asarray(s)
+    s = np.asarray(sensors)
     N = len(s)
     r = np.linalg.norm(x - s, axis=1)
     # Avoid division by zero

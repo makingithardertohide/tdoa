@@ -220,7 +220,7 @@ for i in range(num_sensors):
         x=xs / 1000.0,
         y=ys / 1000.0,
         z=Z,
-        contours=dict(values=[levels[0]]),
+        contours=dict(value=[levels[0]]),
         line=dict(width=3, color="blue"),
         showscale=False,
         hoverinfo="skip",
@@ -232,7 +232,7 @@ for i in range(num_sensors):
         x=xs / 1000.0,
         y=ys / 1000.0,
         z=Z,
-        contours=dict(values=[levels[1]]),
+        contours=dict(value=[levels[1]]),
         line=dict(width=1, color="royalblue", dash="dot"),
         showscale=False,
         hoverinfo="skip"
@@ -243,7 +243,7 @@ for i in range(num_sensors):
         x=xs / 1000.0,
         y=ys / 1000.0,
         z=Z,
-        contours=dict(values=[levels[2]]),
+        contours=dict(value=[levels[2]]),
         line=dict(width=1, color="royalblue", dash="dot"),
         showscale=False,
         hoverinfo="skip"

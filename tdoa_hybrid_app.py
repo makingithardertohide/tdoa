@@ -16,15 +16,21 @@ C = 3e8  # speed of light (m/s)
 
 def tdoa_vector(x, sensors, ref_idx=0):
     """
-    Given a candidate position x (2,), compute TDOA vector (range differences)
-    relative to reference sensor (ref_idx). Returns vector of length (N-1,).
+    Compute TDOA range-difference vector (length N).
+    Element 0 will always be zero (ref).
     """
     x = np.asarray(x)
     s = np.asarray(sensors)
-    d_ref = np.linalg.norm(x - s[ref_idx], axis=1)  # distances to ref duplicated
-    # distances to each sensor
+
+    # Distance from candidate x to reference sensor (scalar)
+    d_ref = np.linalg.norm(x - s[ref_idx])
+
+    # Distances from x to all sensors (vector)
     d_all = np.linalg.norm(x - s, axis=1)
-    return d_all - d_all[ref_idx]
+
+    # Range differences
+    return d_all - d_ref
+
 
 def jacobian_tdoa(x, sensors, ref_idx=0):
     """
